@@ -2,6 +2,7 @@ package tech.nanobyter.coronavirustracker.models;
 
 /**
  * @author {nanobyter}
+ * 			www.nanobyter.tech
  * 
  *         created: 2022-07-11
  */
@@ -35,4 +36,9 @@ public class LocationStats {
 		this.latestTotalCases = latestTotalCases;
 	}
 
+	@Override
+	public String toString() {
+		return "LocationStats [state=" + state + ", country=" + country + ", latestTotalCases=" + latestTotalCases
+				+ "]";
+	}
 }
