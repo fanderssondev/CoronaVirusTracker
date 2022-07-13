@@ -12,6 +12,7 @@ public class LocationStats {
 	private String country;
 	private int latestTotalCases;
 	private int diffFromPreviousDay;
+	private int previousDayCases;
 
 	public String getState() {
 		return state;
@@ -45,6 +46,13 @@ public class LocationStats {
 		this.diffFromPreviousDay = diffFromPreviousDay;
 	}
 	
+	public int getPreviousDayCases() {
+		return previousDayCases;
+	}
+
+	public void setPreviousDayCases(int previousDayCases) {
+		this.previousDayCases = previousDayCases;
+	}
 	@Override
 	public String toString() {
 		return "LocationStats [state=" + state + ", country=" + country + ", latestTotalCases=" + latestTotalCases

@@ -1,5 +1,6 @@
 package tech.nanobyter.coronavirustracker.controller;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class HomeController {
 
 	@Autowired
 	CoronaVirusDataService coronaVirusDataService;
+	
+	DecimalFormat df = new DecimalFormat("#,###.##");
 
 	@GetMapping("/")
 	public String home(Model model) {
@@ -29,8 +32,8 @@ public class HomeController {
 		int totalNewCases = allStats.stream().mapToInt(stat -> stat.getDiffFromPreviousDay()).sum();
 
 		model.addAttribute("locationStats", allStats);
-		model.addAttribute("totalReportedCases", totalReportedCases);
-		model.addAttribute("totalNewCases", totalNewCases);
+		model.addAttribute("totalReportedCases", df.format(totalReportedCases));
+		model.addAttribute("totalNewCases", df.format(totalNewCases));
 
 		return "home";
 	}
